@@ -11,7 +11,7 @@ import { lovable } from "@/integrations/lovable/index";
 import { useAuth } from "@/lib/auth";
 import { cn } from "@/lib/utils";
 
-type Search = { redirect?: string; mode?: "giris" | "kayit" };
+type Search = { redirect?: string | undefined; mode?: "giris" | "kayit" | undefined };
 
 function safeRedirect(value: string | undefined): string {
   if (!value || !value.startsWith("/") || value.startsWith("//")) return "/hesabim";

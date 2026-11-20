@@ -3,7 +3,7 @@ import { ProductCard } from "@/components/site/ProductCard";
 import { CATEGORIES, PRODUCTS, getCategory, type CategoryId } from "@/lib/products";
 import { cn } from "@/lib/utils";
 
-type Search = { kategori?: CategoryId };
+type Search = { kategori?: CategoryId | undefined };
 
 export const Route = createFileRoute("/urunler")({
   validateSearch: (search: Record<string, unknown>): Search => {
