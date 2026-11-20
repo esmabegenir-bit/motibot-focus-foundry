@@ -10,33 +10,159 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as SepetRouteImport } from './routes/sepet'
+import { Route as SifreSifirlaRouteImport } from './routes/sifre-sifirla'
+import { Route as UrunlerRouteImport } from './routes/urunler'
+import { Route as AuthenticatedHesabimRouteImport } from './routes/_authenticated/hesabim'
+import { Route as AuthenticatedOdemeRouteImport } from './routes/_authenticated/odeme'
+import { Route as ApiMotiChatRouteImport } from './routes/api/moti-chat'
+import { Route as UrunSlugRouteImport } from './routes/urun.$slug'
+import { Route as AuthenticatedSiparisIdRouteImport } from './routes/_authenticated/siparis.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SepetRoute = SepetRouteImport.update({
+  id: '/sepet',
+  path: '/sepet',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SifreSifirlaRoute = SifreSifirlaRouteImport.update({
+  id: '/sifre-sifirla',
+  path: '/sifre-sifirla',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UrunlerRoute = UrunlerRouteImport.update({
+  id: '/urunler',
+  path: '/urunler',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedHesabimRoute = AuthenticatedHesabimRouteImport.update({
+  id: '/hesabim',
+  path: '/hesabim',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedOdemeRoute = AuthenticatedOdemeRouteImport.update({
+  id: '/odeme',
+  path: '/odeme',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const ApiMotiChatRoute = ApiMotiChatRouteImport.update({
+  id: '/api/moti-chat',
+  path: '/api/moti-chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UrunSlugRoute = UrunSlugRouteImport.update({
+  id: '/urun/$slug',
+  path: '/urun/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedSiparisIdRoute = AuthenticatedSiparisIdRouteImport.update({
+  id: '/siparis/$id',
+  path: '/siparis/$id',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/sepet': typeof SepetRoute
+  '/sifre-sifirla': typeof SifreSifirlaRoute
+  '/urunler': typeof UrunlerRoute
+  '/hesabim': typeof AuthenticatedHesabimRoute
+  '/odeme': typeof AuthenticatedOdemeRoute
+  '/api/moti-chat': typeof ApiMotiChatRoute
+  '/urun/$slug': typeof UrunSlugRoute
+  '/siparis/$id': typeof AuthenticatedSiparisIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/sepet': typeof SepetRoute
+  '/sifre-sifirla': typeof SifreSifirlaRoute
+  '/urunler': typeof UrunlerRoute
+  '/hesabim': typeof AuthenticatedHesabimRoute
+  '/odeme': typeof AuthenticatedOdemeRoute
+  '/api/moti-chat': typeof ApiMotiChatRoute
+  '/urun/$slug': typeof UrunSlugRoute
+  '/siparis/$id': typeof AuthenticatedSiparisIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/sepet': typeof SepetRoute
+  '/sifre-sifirla': typeof SifreSifirlaRoute
+  '/urunler': typeof UrunlerRoute
+  '/_authenticated/hesabim': typeof AuthenticatedHesabimRoute
+  '/_authenticated/odeme': typeof AuthenticatedOdemeRoute
+  '/api/moti-chat': typeof ApiMotiChatRoute
+  '/urun/$slug': typeof UrunSlugRoute
+  '/_authenticated/siparis/$id': typeof AuthenticatedSiparisIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/sepet'
+    | '/sifre-sifirla'
+    | '/urunler'
+    | '/hesabim'
+    | '/odeme'
+    | '/api/moti-chat'
+    | '/urun/$slug'
+    | '/siparis/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/auth'
+    | '/sepet'
+    | '/sifre-sifirla'
+    | '/urunler'
+    | '/hesabim'
+    | '/odeme'
+    | '/api/moti-chat'
+    | '/urun/$slug'
+    | '/siparis/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/auth'
+    | '/sepet'
+    | '/sifre-sifirla'
+    | '/urunler'
+    | '/_authenticated/hesabim'
+    | '/_authenticated/odeme'
+    | '/api/moti-chat'
+    | '/urun/$slug'
+    | '/_authenticated/siparis/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AuthRoute: typeof AuthRoute
+  SepetRoute: typeof SepetRoute
+  SifreSifirlaRoute: typeof SifreSifirlaRoute
+  UrunlerRoute: typeof UrunlerRoute
+  ApiMotiChatRoute: typeof ApiMotiChatRoute
+  UrunSlugRoute: typeof UrunSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +174,103 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sepet': {
+      id: '/sepet'
+      path: '/sepet'
+      fullPath: '/sepet'
+      preLoaderRoute: typeof SepetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sifre-sifirla': {
+      id: '/sifre-sifirla'
+      path: '/sifre-sifirla'
+      fullPath: '/sifre-sifirla'
+      preLoaderRoute: typeof SifreSifirlaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/urunler': {
+      id: '/urunler'
+      path: '/urunler'
+      fullPath: '/urunler'
+      preLoaderRoute: typeof UrunlerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/hesabim': {
+      id: '/_authenticated/hesabim'
+      path: '/hesabim'
+      fullPath: '/hesabim'
+      preLoaderRoute: typeof AuthenticatedHesabimRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/odeme': {
+      id: '/_authenticated/odeme'
+      path: '/odeme'
+      fullPath: '/odeme'
+      preLoaderRoute: typeof AuthenticatedOdemeRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/api/moti-chat': {
+      id: '/api/moti-chat'
+      path: '/api/moti-chat'
+      fullPath: '/api/moti-chat'
+      preLoaderRoute: typeof ApiMotiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/urun/$slug': {
+      id: '/urun/$slug'
+      path: '/urun/$slug'
+      fullPath: '/urun/$slug'
+      preLoaderRoute: typeof UrunSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/siparis/$id': {
+      id: '/_authenticated/siparis/$id'
+      path: '/siparis/$id'
+      fullPath: '/siparis/$id'
+      preLoaderRoute: typeof AuthenticatedSiparisIdRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedHesabimRoute: typeof AuthenticatedHesabimRoute
+  AuthenticatedOdemeRoute: typeof AuthenticatedOdemeRoute
+  AuthenticatedSiparisIdRoute: typeof AuthenticatedSiparisIdRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedHesabimRoute: AuthenticatedHesabimRoute,
+  AuthenticatedOdemeRoute: AuthenticatedOdemeRoute,
+  AuthenticatedSiparisIdRoute: AuthenticatedSiparisIdRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AuthRoute: AuthRoute,
+  SepetRoute: SepetRoute,
+  SifreSifirlaRoute: SifreSifirlaRoute,
+  UrunlerRoute: UrunlerRoute,
+  ApiMotiChatRoute: ApiMotiChatRoute,
+  UrunSlugRoute: UrunSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
