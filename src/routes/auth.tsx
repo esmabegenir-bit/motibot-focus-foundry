@@ -2,7 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { LovableMark } from "@lovable.dev/cloud-auth-js/react";
-import heroImage from "@/assets/motibot-lite.jpg";
+import heroImage from "@/assets/orig-lite.jpg";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
