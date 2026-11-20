@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, BellRing, Gift, Plus, Timer, Truck } from "lucide-react";
 import { toast } from "sonner";
-import heroImage from "@/assets/hero-motibot.jpg";
+import heroImage from "@/assets/orig-duo.jpg";
 import storyImage from "@/assets/brand-story.jpg";
 import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/components/site/ProductCard";
@@ -33,9 +33,9 @@ export const Route = createFileRoute("/")({
 
 const CATEGORY_IMAGES: Record<string, string> = {
   robotlar: getProduct("motibot-lite")?.image ?? "",
-  aksesuarlar: getProduct("ahsap-sarj-standi")?.image ?? "",
-  "dijital-urunler": getProduct("odak-ses-paketi")?.image ?? "",
-  "hediye-setleri": getProduct("baslangic-hediye-seti")?.image ?? "",
+  aksesuarlar: getProduct("moti-skin")?.image ?? "",
+  "dijital-urunler": getProduct("retro-pixel")?.image ?? "",
+  "hediye-setleri": getProduct("kampus-seti")?.image ?? "",
 };
 
 function Index() {
