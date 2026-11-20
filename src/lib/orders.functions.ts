@@ -3,12 +3,15 @@ import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { getProduct } from "@/lib/products";
 import { computeTotals } from "@/lib/pricing";
+import { configName, configPrice, configSummary, motiConfigSchema } from "@/lib/customizer";
+
+const CUSTOM_ID = "kendi-motibot";
 
 export const DECLINED_TEST_CARD = "4000000000000002";
 
 const orderInput = z.object({
   items: z
-    .array(z.object({ productId: z.string().min(1).max(80), quantity: z.number().int().min(1).max(10) }))
+    .array(z.object({ productId: z.string().min(1).max(80), quantity: z.number().int().min(1).max(10), config: motiConfigSchema.optional() }))
     .min(1)
     .max(30),
   coupon: z.string().max(30).optional(),
@@ -36,6 +39,11 @@ export const placeOrder = createServerFn({ method: "POST" })
     }
 
     const lines = data.items.flatMap((i) => {
+      if (i.productId === CUSTOM_ID) {
+        if (!i.config) return [];
+        const summary = configSummary(i.config);
+        return [{ productId: CUSTOM_ID, name: summary ? `${configName(i.config)} (${summary})` : configName(i.config), price: configPrice(i.config), quantity: i.quantity, digital: false, config: i.config }];
+      }
       const p = getProduct(i.productId);
       return p
         ? [{ productId: p.id, name: p.name, price: p.price, quantity: i.quantity, digital: p.digital }]

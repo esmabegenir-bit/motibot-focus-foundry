@@ -1,19 +1,26 @@
-import motibotLite from "@/assets/motibot-lite.jpg";
-import motibotPro from "@/assets/motibot-pro.jpg";
-import chargingStand from "@/assets/charging-stand.jpg";
-import coverShells from "@/assets/cover-shells.jpg";
-import digitalFocusPack from "@/assets/digital-focus-pack.jpg";
-import digitalMembership from "@/assets/digital-membership.jpg";
-import giftStarter from "@/assets/gift-starter.jpg";
-import giftOffice from "@/assets/gift-office.jpg";
+import lite from "@/assets/orig-lite.jpg";
+import pro from "@/assets/orig-pro.jpg";
+import skin from "@/assets/orig-skin.jpg";
+import style from "@/assets/orig-style.jpg";
+import name from "@/assets/orig-name.jpg";
+import dock from "@/assets/orig-dock.jpg";
+import mcase from "@/assets/orig-case.jpg";
+import tRetro from "@/assets/theme-retro.jpg";
+import tStudy from "@/assets/theme-study.jpg";
+import tMinimal from "@/assets/theme-minimal.jpg";
+import tCozy from "@/assets/theme-cozy.jpg";
+import tKutlama from "@/assets/theme-kutlama.jpg";
+import sKampus from "@/assets/set-kampus.jpg";
+import sCalisma from "@/assets/set-calisma.jpg";
+import sIlk from "@/assets/set-ilk-moti.jpg";
 
 export type CategoryId = "robotlar" | "aksesuarlar" | "dijital-urunler" | "hediye-setleri";
 
 export const CATEGORIES: { id: CategoryId; name: string; tagline: string }[] = [
-  { id: "robotlar", name: "Robotlar", tagline: "Masandaki yeni çalışma arkadaşın" },
-  { id: "aksesuarlar", name: "Aksesuarlar", tagline: "Robotunu kendi tarzına göre giydir" },
-  { id: "dijital-urunler", name: "Dijital Ürünler", tagline: "Yeni sesler, yeni rutinler" },
-  { id: "hediye-setleri", name: "Hediye Setleri", tagline: "Sevdiklerinin masasına karakter kat" },
+  { id: "robotlar", name: "Robotlar", tagline: "Motibot Lite ve Pro · Öğrenci ve Home-Office serileri" },
+  { id: "aksesuarlar", name: "Moti-Wear & Aksesuarlar", tagline: "Moti'ni kendine göre tasarla" },
+  { id: "dijital-urunler", name: "Moti-Themes", tagline: "Ekran görünümü, animasyon ve isteğe bağlı sesler" },
+  { id: "hediye-setleri", name: "Hediye Setleri", tagline: "Bir kutu dolusu arkadaşlık" },
 ];
 
 export type Product = {
@@ -31,124 +38,60 @@ export type Product = {
 };
 
 export const PRODUCTS: Product[] = [
-  {
-    id: "motibot-lite",
-    slug: "motibot-lite",
-    name: "MotiBot Lite",
-    category: "robotlar",
-    price: 4499,
-    image: motibotLite,
-    short: "Kompakt, sevimli ve tam odak modunda.",
-    description:
-      "MotiBot Lite, masanın köşesinde seni bekleyen küçük bir motivasyon koçu. Pomodoro zamanlayıcısıyla çalışma ve mola sürelerini yönetir, su içmeyi ve esnemeyi hatırlatır, hedefini tamamladığında gözleriyle gülümser. Yeni başlayanlar ve öğrenciler için ideal.",
-    features: [
-      "Dahili Pomodoro zamanlayıcı",
-      "Su ve mola hatırlatıcıları",
-      "30+ yüz ifadesi",
-      "USB-C ile 3 gün pil ömrü",
-    ],
-    digital: false,
-    badge: "Çok satan",
-  },
-  {
-    id: "motibot-pro",
-    slug: "motibot-pro",
-    name: "MotiBot Pro",
-    category: "robotlar",
-    price: 8999,
-    image: motibotPro,
-    short: "Hareketli kollar, sesli komut ve akıllı odak takibi.",
-    description:
-      "MotiBot Pro, odaklanmayı oyuna çeviren ileri seviye masaüstü robot. Hareketli kolları ve ışık halkasıyla durumunu gösterir, sesli komutlarla zamanlayıcı başlatır, telefon uygulamasıyla günlük odak raporu çıkarır. Uzaktan çalışanlar, yazılımcılar ve tasarımcılar için.",
-    features: [
-      "Sesli komut desteği",
-      "Hareketli kollar ve ışık halkası",
-      "Günlük ve haftalık odak raporu",
-      "Takvim entegrasyonu",
-      "Kablosuz şarj uyumlu",
-    ],
-    digital: false,
-    badge: "Yeni",
-  },
-  {
-    id: "ahsap-sarj-standi",
-    slug: "ahsap-sarj-standi",
-    name: "Ceviz Şarj Standı",
-    category: "aksesuarlar",
-    price: 749,
-    image: chargingStand,
-    short: "Masana yakışan kablosuz şarj yuvası.",
-    description:
-      "Doğal ceviz ağacından üretilen bu stant, MotiBot'unu kablosuz olarak şarj eder ve göz hizasına yükseltir. Kumaş kaplı yüzeyi masanı çizmez.",
-    features: ["Doğal ceviz ağacı", "Kablosuz şarj", "Lite ve Pro ile uyumlu"],
-    digital: false,
-  },
-  {
-    id: "renkli-kilif-seti",
-    slug: "renkli-kilif-seti",
-    name: "Renkli Kılıf Seti",
-    category: "aksesuarlar",
-    price: 399,
-    image: coverShells,
-    short: "Hardal, lacivert ve kiremit: 3'lü silikon kılıf.",
-    description:
-      "Robotunun tarzını ruh haline göre değiştir. Yumuşak silikon kılıflar saniyeler içinde takılır, darbelere karşı da korur.",
-    features: ["3 renk", "Yumuşak silikon", "MotiBot Lite ile uyumlu"],
-    digital: false,
-  },
-  {
-    id: "odak-ses-paketi",
-    slug: "odak-ses-paketi",
-    name: "Odak Ses ve Animasyon Paketi",
-    category: "dijital-urunler",
-    price: 199,
-    image: digitalFocusPack,
-    short: "40 yeni ses, 25 yeni yüz animasyonu.",
-    description:
-      "Yağmur, kafe uğultusu, kütüphane sessizliği… Odaklanmana yardım eden 40 ambiyans sesi ve robotuna 25 yeni yüz ifadesi. Satın aldıktan sonra uygulama üzerinden anında yüklenir.",
-    features: ["Anında teslim", "40 ambiyans sesi", "25 animasyon"],
-    digital: true,
-  },
-  {
-    id: "moti-plus-uyelik",
-    slug: "moti-plus-uyelik",
-    name: "Moti+ Yıllık Üyelik",
-    category: "dijital-urunler",
-    price: 599,
-    image: digitalMembership,
-    short: "Gelişmiş raporlar, hedefler ve her ay yeni içerik.",
-    description:
-      "Moti+ ile odak istatistiklerini detaylı incele, haftalık hedefler koy, arkadaşlarınla odak yarışlarına katıl. Her ay yeni ses ve animasyon paketi hediye.",
-    features: ["12 ay erişim", "Gelişmiş raporlar", "Aylık yeni içerik"],
-    digital: true,
-  },
-  {
-    id: "baslangic-hediye-seti",
-    slug: "baslangic-hediye-seti",
-    name: "Başlangıç Hediye Seti",
-    category: "hediye-setleri",
-    price: 5299,
-    image: giftStarter,
-    short: "MotiBot Lite, mini stant ve el yazısı kart.",
-    description:
-      "İlk MotiBot deneyimi için hazırlanmış özel kutu. İçinde MotiBot Lite, mini ceviz stant ve kişisel notunu yazabileceğin bir kart var. Mezuniyet, doğum günü ve yeni iş hediyesi olarak harika.",
-    features: ["MotiBot Lite", "Mini ceviz stant", "Hediye kartı", "Özel kutu"],
-    digital: false,
-  },
-  {
-    id: "ofis-hediye-seti",
-    slug: "ofis-hediye-seti",
-    name: "Ofis Hediye Seti",
-    category: "hediye-setleri",
-    price: 9799,
-    image: giftOffice,
-    short: "MotiBot Pro, 4 renkli kılıf ve odak defteri.",
-    description:
-      "Ekip arkadaşlarına ya da kendine büyük bir jest: MotiBot Pro, 4 renkli kılıf ve lacivert odak defteri şık bir hediye kutusunda.",
-    features: ["MotiBot Pro", "4 renkli kılıf", "Odak defteri", "Kurumsal kutu"],
-    digital: false,
-    badge: "Hediye",
-  },
+  { id: "motibot-lite", slug: "motibot-lite", name: "MotiBot Lite", category: "robotlar", price: 4499, image: lite,
+    short: "Öğrenci Serisi · Ders çalışırken odaklanmana yardım eden masa arkadaşı.",
+    description: "MotiBot Lite, öğrenci masası için tasarlanan sabit masaüstü robot. Dokunmaya tepki verir, ifadeli ekranıyla Türkçe hazır tepkiler ve motivasyon mesajları gösterir. Ayarlanabilir Pomodoro sayacı, sessiz kütüphane modu ve “Çalışıyorum / Moladayım” durum ekranıyla ders rutinini keyifli hale getirir. Renk seçenekleri: antrasit, krem, uzay grisi.",
+    features: ["Ayarlanabilir Pomodoro", "Dokunmaya tepki", "Türkçe hazır tepkiler", "Sesli tebrik", "Sessiz kütüphane modu", "Çalışıyorum / Moladayım", "Daha erişilebilir model"],
+    digital: false, badge: "Öğrenci Serisi" },
+  { id: "motibot-pro", slug: "motibot-pro", name: "MotiBot Pro", category: "robotlar", price: 8999, image: pro,
+    short: "Home-Office Serisi · Türkçe AI sohbetli akıllı masa arkadaşı.",
+    description: "MotiBot Pro, evden çalışanlar için sabit masaüstü robot. Lite'ın tüm özelliklerine ek olarak Türkçe yapay zekâ sohbeti, kişisel odak ve mola planı, hedeflere özel tepkiler ve sessiz toplantı modu sunar. Ekranında “Toplantıdayım / Odaktayım / Müsaitim” durumunu gösterir. Moti-Dock kutuya dâhildir. Durum seçimi uygulamadan yapılır.",
+    features: ["Lite özelliklerine ek olarak", "Türkçe AI sohbet", "Kişisel odak ve mola planı", "Hedeflere özel tepkiler", "Sessiz toplantı modu", "Toplantıdayım / Odaktayım / Müsaitim", "Moti-Dock kutuya dâhil"],
+    digital: false, badge: "Home-Office Serisi" },
+  { id: "moti-skin", slug: "moti-skin", name: "Moti-Skin Silikon Kılıf", category: "aksesuarlar", price: 349, image: skin,
+    short: "Sensör ve hoparlör alanları açık, değiştirilebilir kılıflar.",
+    description: "Moti'nin rengini ruh haline göre değiştir. Hardal, lacivert ve adaçayı yeşili seçenekleri olan silikon kılıflar sensör ve hoparlör alanlarını açık bırakır.",
+    features: ["Hardal, lacivert, adaçayı", "Sensör ve hoparlör alanları açık", "Kolay takılır"], digital: false },
+  { id: "moti-style", slug: "moti-style", name: "Moti-Style Şapka & Mini Kulaklık", category: "aksesuarlar", price: 249, image: style,
+    short: "Mevsimlik şapkalar ve dekoratif mini kulaklıklar.",
+    description: "Ponponlu bere, mezuniyet kepi, parti şapkası ve dekoratif mini kulaklıkla Moti'ye karakter kat. Kulaklık aksesuarı ses cihazı değildir.",
+    features: ["Mevsimlik şapkalar", "Dekoratif mini kulaklık", "Kulaklık ses cihazı değildir"], digital: false },
+  { id: "moti-name", slug: "moti-name", name: "Moti-Name İsimlik", category: "aksesuarlar", price: 199, image: name,
+    short: "Robotuna verdiğin isim, standında.",
+    description: "Moti'ne verdiğin ismi standına tak. Kişisel bir masa arkadaşı için küçük ama anlamlı bir dokunuş.",
+    features: ["Kişiye özel isim", "Stand üzerine takılır"], digital: false },
+  { id: "moti-dock", slug: "moti-dock", name: "Moti-Dock Şarj Standı", category: "aksesuarlar", price: 749, image: dock,
+    short: "Manyetik hizalama · Temaslı şarj · Kaymaz taban.",
+    description: "Moti-Dock, robotu manyetik olarak hizalar ve temaslı şarj eder; kaymaz tabanıyla masada sabit durur. Pro kutusuna dâhildir, Lite için isteğe bağlıdır. Lite'ın temel şarj kablosu kutuya dâhildir.",
+    features: ["Manyetik hizalama", "Temaslı şarj", "Kaymaz taban", "Pro kutusuna dâhil · Lite için isteğe bağlı"], digital: false },
+  { id: "moti-case", slug: "moti-case", name: "Moti-Case Taşıma Çantası", category: "aksesuarlar", price: 549, image: mcase,
+    short: "Robot ve kablo için koruyucu bölmeler.",
+    description: "Moti'yi kampüse ya da ofise güvenle taşı. İç bölmeler robotu ve kabloyu ayrı ayrı korur.",
+    features: ["Koruyucu bölmeler", "Fermuarlı sert kutu"], digital: false },
+  { id: "retro-pixel", slug: "retro-pixel", name: "Moti-Theme · Retro Pixel", category: "dijital-urunler", price: 99, image: tRetro,
+    short: "Piksel gözler ve oyun sesleri.", description: "Moti'nin ekranını piksel gözlerle ve isteğe bağlı oyun sesleriyle yenile. Uygulamadan anında yüklenir.",
+    features: ["Piksel gözler", "Oyun sesleri", "Uygulamadan yüklenir"], digital: true },
+  { id: "study-buddy", slug: "study-buddy", name: "Moti-Theme · Study Buddy", category: "dijital-urunler", price: 99, image: tStudy,
+    short: "Odak sayacı ve Türkçe teşvikler.", description: "Ders çalışırken odak sayacını ve Türkçe teşvik mesajlarını öne çıkaran tema.",
+    features: ["Odak sayacı", "Türkçe teşvikler"], digital: true },
+  { id: "minimal-office", slug: "minimal-office", name: "Moti-Theme · Minimal Office", category: "dijital-urunler", price: 99, image: tMinimal,
+    short: "Sade saat ve durum ekranı.", description: "Home-office masası için sade saat ve “Odaktayım” gibi durum ekranları.",
+    features: ["Sade saat", "Durum ekranı"], digital: true },
+  { id: "cozy-moti", slug: "cozy-moti", name: "Moti-Theme · Cozy Moti", category: "dijital-urunler", price: 99, image: tCozy,
+    short: "Sakin mola animasyonları.", description: "Mola vakitlerinde sakinleştiren, yumuşak animasyonlar.",
+    features: ["Sakin mola animasyonları"], digital: true },
+  { id: "kutlama-paketi", slug: "kutlama-paketi", name: "Moti-Theme · Kutlama Paketi", category: "dijital-urunler", price: 99, image: tKutlama,
+    short: "Doğum günü ve hedef kutlamaları.", description: "Doğum günlerinde ve hedefini tamamladığında Moti seninle kutlasın.",
+    features: ["Doğum günü kutlaması", "Hedef kutlamaları"], digital: true },
+  { id: "kampus-seti", slug: "kampus-seti", name: "Kampüs Seti", category: "hediye-setleri", price: 4799, image: sKampus,
+    short: "Lite + silikon kılıf + Study Buddy.", description: "Üniversite öğrencileri için hazır set: MotiBot Lite, bir Moti-Skin silikon kılıf ve Study Buddy teması.",
+    features: ["MotiBot Lite", "Moti-Skin silikon kılıf", "Study Buddy teması"], digital: false, badge: "Öğrenciye" },
+  { id: "calisma-masam-seti", slug: "calisma-masam-seti", name: "Çalışma Masam Seti", category: "hediye-setleri", price: 9299, image: sCalisma,
+    short: "Pro + kutuya dâhil Dock + isimlik + Minimal Office.", description: "Home-office için: MotiBot Pro, kutuya dâhil Moti-Dock, Moti-Name isimlik ve Minimal Office teması.",
+    features: ["MotiBot Pro", "Moti-Dock (kutuya dâhil)", "Moti-Name isimlik", "Minimal Office teması"], digital: false },
+  { id: "ilk-motim-hediye-seti", slug: "ilk-motim-hediye-seti", name: "İlk Moti'm Hediye Seti", category: "hediye-setleri", price: 4899, image: sIlk,
+    short: "Seçilen robot + isimlik + hediye kutusu + kişisel not.", description: "Doğum günü, mezuniyet ve yeni iş için kişisel bir hediye: MotiBot Lite, Moti-Name isimlik, hediye kutusu ve kişisel not kartı.",
+    features: ["MotiBot Lite", "Moti-Name isimlik", "Hediye kutusu", "Kişisel not"], digital: false, badge: "Hediye" },
 ];
 
 export function getProduct(slug: string): Product | undefined {

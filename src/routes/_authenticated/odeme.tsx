@@ -74,7 +74,7 @@ function CheckoutPage() {
       await new Promise((r) => setTimeout(r, 1200));
       const result = await submitOrder({
         data: {
-          items: lines.map((l) => ({ productId: l.productId, quantity: l.quantity })),
+          items: lines.map((l) => ({ productId: l.productId, quantity: l.quantity, ...(l.config ? { config: l.config } : {}) })),
           ...(coupon ? { coupon } : {}),
           shipping: ship,
           card: {
@@ -176,7 +176,7 @@ function CheckoutPage() {
           <h2 className="text-xl font-extrabold text-navy">Siparişin</h2>
           <ul className="space-y-3">
             {lines.map((l) => (
-              <li key={l.productId} className="flex items-center gap-3 text-sm">
+              <li key={l.key} className="flex items-center gap-3 text-sm">
                 <img src={l.product.image} alt="" className="h-12 w-12 rounded-xl object-cover" />
                 <span className="flex-1">
                   {l.product.name} <span className="text-muted-foreground">× {l.quantity}</span>

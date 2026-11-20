@@ -49,7 +49,7 @@ function CartPage() {
       <div className="grid gap-8 lg:grid-cols-[1fr_380px]">
         <ul className="space-y-4">
           {lines.map((l) => (
-            <li key={l.productId} className="flex gap-4 rounded-3xl bg-card p-3 shadow-soft sm:p-4">
+            <li key={l.key} className="flex gap-4 rounded-3xl bg-card p-3 shadow-soft sm:p-4">
               <Link to="/urun/$slug" params={{ slug: l.product.slug }} className="shrink-0">
                 <img src={l.product.image} alt={l.product.name} className="h-24 w-24 rounded-2xl object-cover sm:h-28 sm:w-28" />
               </Link>
@@ -60,18 +60,19 @@ function CartPage() {
                       {l.product.name}
                     </Link>
                     <p className="text-sm text-muted-foreground">{formatPrice(l.product.price)}</p>
+                    {l.config && <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">{l.product.short}</p>}
                   </div>
-                  <Button variant="ghost" size="icon" aria-label={`${l.product.name} sepetten çıkar`} onClick={() => remove(l.productId)}>
+                  <Button variant="ghost" size="icon" aria-label={`${l.product.name} sepetten çıkar`} onClick={() => remove(l.key)}>
                     <Trash2 />
                   </Button>
                 </div>
                 <div className="mt-auto flex items-center justify-between pt-2">
                   <div className="flex items-center rounded-full border border-border">
-                    <Button variant="ghost" size="icon-sm" aria-label="Azalt" onClick={() => setQuantity(l.productId, l.quantity - 1)}>
+                    <Button variant="ghost" size="icon-sm" aria-label="Azalt" onClick={() => setQuantity(l.key, l.quantity - 1)}>
                       <Minus />
                     </Button>
                     <span className="w-8 text-center text-sm font-bold">{l.quantity}</span>
-                    <Button variant="ghost" size="icon-sm" aria-label="Arttır" onClick={() => setQuantity(l.productId, l.quantity + 1)}>
+                    <Button variant="ghost" size="icon-sm" aria-label="Arttır" onClick={() => setQuantity(l.key, l.quantity + 1)}>
                       <Plus />
                     </Button>
                   </div>

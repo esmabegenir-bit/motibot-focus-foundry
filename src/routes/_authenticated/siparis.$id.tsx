@@ -41,8 +41,8 @@ function OrderPage() {
         <p className="mt-1 text-xs text-muted-foreground">Bu bir simülasyondur; kartından para çekilmedi.</p>
 
         <ul className="mt-8 space-y-2 text-left text-sm">
-          {items.map((i) => (
-            <li key={i.productId} className="flex justify-between border-b border-border pb-2">
+          {items.map((i, idx) => (
+            <li key={idx} className="flex justify-between border-b border-border pb-2">
               <span>{i.name} × {i.quantity}</span>
               <span className="font-semibold">{formatPrice(i.price * i.quantity)}</span>
             </li>
